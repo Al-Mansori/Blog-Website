@@ -10,11 +10,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 import dotenv from 'dotenv';
 dotenv.config();
 
-let port = 3000;
-// let port = process.env.PORT;
-// if (port == null || port == "") {
-//   port = 3000;
-// }
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
 const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.${process.env.DB_CLUSTERNAME}.${process.env.DB_HOST}/postDB`;
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
 
